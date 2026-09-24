@@ -1,10 +1,10 @@
 import Foundation
 
-enum Role: String, Codable {
+enum Role: String, Codable, Hashable {
     case user, assistant
 }
 
-struct Message: Identifiable, Codable, Equatable {
+struct Message: Identifiable, Codable, Equatable, Hashable {
     var id = UUID()
     let role: Role
     var content: String
@@ -16,7 +16,7 @@ struct Message: Identifiable, Codable, Equatable {
     }
 }
 
-struct Chat: Identifiable, Codable, Equatable {
+struct Chat: Identifiable, Codable, Equatable, Hashable {
     var id = UUID()
     var title: String
     var messages: [Message]
